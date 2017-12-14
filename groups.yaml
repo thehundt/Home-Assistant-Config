@@ -1,0 +1,174 @@
+####################################################
+# Group Config
+####################################################
+
+    ####################################################
+    # Views
+    ####################################################
+
+
+  default_view:
+    view: yes
+    icon: mdi:home 
+    entities:
+      - group.home
+      - group.climate
+      - group.doors
+      - group.motion
+      
+  Living Room:
+    view: yes
+    icon: mdi:sofa
+    control: hidden
+    entities:
+      - sensor.living_room_temperature_2
+      - binary_sensor.deck_door_opened
+      - binary_sensor.living_room_occupancy
+      - group.living_room_lights
+      - group.christmas
+      - group.living_room_media
+      
+  Outside:
+    icon: mdi:weather-night
+    view: yes
+    entities:
+      - group.outside_lights_front
+      - group.outside_lights_back
+      
+  Kitchen:
+    icon: mdi:silverware-variant
+    view: yes
+    control: hidden
+    entities:
+      - sensor.kitchen_temperature
+      - binary_sensor.kitchen_to_garage_opened
+      - binary_sensor.kitchen_motion
+
+  Back Porch:
+    name: Porch
+    view: yes
+    control: hidden
+    entities:
+      - sensor.back_porch_temperature
+      - binary_sensor.deck_door_opened
+      - binary_sensor.back_porch_motion
+      - group.back_porch_inside_lights
+      - group.back_porch_outside_lights
+      - group.back_porch_fan
+      
+  Bedrooms:
+    name: Bedrooms
+    icon: mdi:hotel
+    view: yes
+    control: hidden
+    entities:
+      - group.bedroom_2
+      - group.bedroom_3
+      
+  Bonus Room:
+    icon: mdi:desktop-classic
+    entities:
+      - light.bonus_room_lamp
+      
+    ####################################################
+    # Groups
+    ####################################################
+
+  Bedroom 3:
+    name: Aidens Room
+    control: hidden
+    entities:
+      - sensor.aidens_room_temperature_2
+      - binary_sensor.aidens_room_occupancy
+      
+  Bedroom 2:
+    name: Nolans Room
+    control: hidden
+    entities:
+      - sensor.nolans_room_temperature_2
+      - binary_sensor.nolans_room_occupancy
+
+  Living Room Lights:
+    view: no
+    entities:
+      - light.desk_light
+      - light.end_table_lamp
+      - light.floor_lamp
+      - light.library_table_lamp
+      
+  Back Porch Inside Lights:
+    view: no
+    entities:
+      - light.back_deck_door
+      - switch.porch_ceiling
+      
+  Back Porch Outside Lights:
+      - light.porch_door
+      - switch.porch_floods
+      - light.patio_light
+
+  Back Porch Fan:
+    view: no
+    control: hidden
+    entities:
+      - light.porch_fan
+
+  Christmas:
+    view: no
+    entities:
+      - switch.christmas_tree
+
+  Outside Lights Back:
+    view: no
+    entities:
+      - light.porch_door
+      - light.patio_light
+
+  Outside Lights Front:
+    view: no
+    entities:
+      - switch.porch_floods
+      - switch.front_door
+
+  Climate:
+    view: no
+    name: Thermostat
+    entities:
+      - weather.hallway
+      - climate.hallway_2
+      
+  Home:
+    icon: mdi:home
+    view: no
+    entities:
+      - device_tracker.4c57ca6a7a10
+      - device_tracker.7c01917efb5e
+      
+  homeserver:
+    name: Server
+    view: no
+    entities:
+      - sensor.cpu_used
+      - sensor.ram_used
+      
+  Doors:
+    view: no
+    entities:
+    - binary_sensor.front_door_opened
+    - binary_sensor.deck_door_opened
+    - binary_sensor.kitchen_to_garage_opened
+    - binary_sensor.garage_back_door_opened
+
+  Living Room Media:
+    name: Media Center
+    view: no
+    entities:
+    - remote.living_room
+    - sensor.living_room
+    
+  Motion:
+    view: no
+    entities:
+      - binary_sensor.back_porch_motion
+      - binary_sensor.front_hallway_motion
+      - binary_sensor.kitchen_motion

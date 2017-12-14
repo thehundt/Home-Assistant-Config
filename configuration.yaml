@@ -1,0 +1,91 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 151
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+frontend:
+config:
+
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  api_password: !secret http_password
+  base_url: https://hundt.duckdns.org:8123
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.1.0/24
+
+updater:
+  reporting: no
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables a map showing the location of tracked devices
+#map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+  
+device_tracker:
+  - platform: !secret dhcp_platform
+    host: !secret dhcp_server_ip
+    username: !secret dhcp_username
+    password: !secret dhcp_password
+    # consider_home: 0:03
+
+wink:
+
+ecobee:
+  api_key: !secret ecobee_api_key
+  
+switch:
+  - platform: tplink
+    host: 192.168.1.14
+
+remote:
+  - platform: harmony
+    name: Living Room
+    host: 192.168.1.7
+    
+media_player:
+  - platform: roku
+
+#################################################################
+## includes
+#################################################################
+
+automation: !include automations.yaml
+#recorder: !include recorder.yaml
+logbook:
+history:
+#zone: !include zones.yaml
+group: !include groups.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+#input_boolean: !include input_boolean.yaml
+#input_select: !include input_select.yaml
+script: !include scripts.yaml
+#weblink: !include weblinks.yaml
