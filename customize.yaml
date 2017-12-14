@@ -2,18 +2,23 @@
 ## Customize
 #################################################################
 
-climate.hallway_2:
-  friendly_name: Ecobee
-weather.hallway:
-  friendly_name: Current Weather
+  ######################
+  # Doors
+  ######################
 binary_sensor.deck_door_opened:
   friendly_name: Porch Door
   icon: mdi:door
 binary_sensor.kitchen_to_garage_opened:
   icon: mdi:door
   friendly_name: Garage House Door
-switch.christmas_tree:
-  icon: mdi:pine-tree
+binary_sensor.front_door_opened:
+  icon: mdi:door
+binary_sensor.garage_back_door_opened:
+  icon: mdi:door  
+
+  ######################
+  # Lamps
+  ######################
 light.desk_light:
   icon: mdi:lamp
 light.end_table_lamp:
@@ -21,14 +26,44 @@ light.end_table_lamp:
 light.floor_lamp:
   icon: mdi:lamp
 light.library_table_lamp:
-  icon: mdi:lamp
-binary_sensor.front_door_opened:
-  icon: mdi:door
-binary_sensor.garage_back_door_opened:
-  icon: mdi:door
-light.porch_fan:
-  icon: mdi:fan
+  icon: mdi:lamp  
+
+  ######################
+  # Lights
+  ######################
 switch.porch_ceiling:
   icon: mdi:lightbulb
 switch.porch_floods:
   icon: mdi:lightbulb
+
+  ######################
+  # Climate
+  ######################
+climate.hallway_2:
+  friendly_name: Ecobee
+weather.hallway:
+  friendly_name: Current Weather
+
+  ######################
+  # Holidays
+  ######################
+switch.christmas_tree:
+  icon: mdi:pine-tree
+
+  ######################
+  # Fans
+  ######################
+light.porch_fan:
+  icon: mdi:fan
+
+  ######################
+  # Smoke and CO 
+  ######################
+binary_sensor.home_downstairs_nest_protect_hallway_smoke_detected:
+  friendly_name: Main Floor
+binary_sensor.home_upstairs_nest_protect_hallway_smoke_detected:
+  friendly_name: 2nd Floor
+binary_sensor.home_downstairs_nest_protect_hallway_co_detected:
+  friendly_name: Main Floor
+binary_sensor.home_upstairs_nest_protect_hallway_co_detected:
+  friendly_name: 2nd Floor

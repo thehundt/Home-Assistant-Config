@@ -14,16 +14,16 @@
       - group.home
       - group.climate
       - group.doors
-      - group.motion
+      - group.motion_and_occupancy
+      - group.smoke_detection
+      - group.co_detection
       
   Living Room:
     view: yes
     icon: mdi:sofa
     control: hidden
     entities:
-      - sensor.living_room_temperature_2
-      - binary_sensor.deck_door_opened
-      - binary_sensor.living_room_occupancy
+      - group.living_room_sensors
       - group.living_room_lights
       - group.christmas
       - group.living_room_media
@@ -40,18 +40,14 @@
     view: yes
     control: hidden
     entities:
-      - sensor.kitchen_temperature
-      - binary_sensor.kitchen_to_garage_opened
-      - binary_sensor.kitchen_motion
+      - group.kitchen_sensors
 
   Back Porch:
-    name: Porch
+    icon: mdi:parking
     view: yes
     control: hidden
     entities:
-      - sensor.back_porch_temperature
-      - binary_sensor.deck_door_opened
-      - binary_sensor.back_porch_motion
+      - group.back_porch_sensors
       - group.back_porch_inside_lights
       - group.back_porch_outside_lights
       - group.back_porch_fan
@@ -67,8 +63,9 @@
       
   Bonus Room:
     icon: mdi:desktop-classic
+    view: yes
     entities:
-      - light.bonus_room_lamp
+      - group.bonus_room_lights
       
     ####################################################
     # Groups
@@ -89,6 +86,7 @@
       - binary_sensor.nolans_room_occupancy
 
   Living Room Lights:
+    name: Lights
     view: no
     entities:
       - light.desk_light
@@ -97,17 +95,22 @@
       - light.library_table_lamp
       
   Back Porch Inside Lights:
+    name: 'Lights: Inside'
     view: no
     entities:
       - light.back_deck_door
       - switch.porch_ceiling
       
   Back Porch Outside Lights:
+    name: 'Lights: Outside'
+    view: no
+    entities:
       - light.porch_door
       - switch.porch_floods
       - light.patio_light
 
   Back Porch Fan:
+    name: Fan
     view: no
     control: hidden
     entities:
@@ -119,15 +122,17 @@
       - switch.christmas_tree
 
   Outside Lights Back:
+    name: Back Yard
     view: no
     entities:
       - light.porch_door
+      - switch.porch_floods
       - light.patio_light
 
   Outside Lights Front:
+    name: Front Yard
     view: no
     entities:
-      - switch.porch_floods
       - switch.front_door
 
   Climate:
@@ -166,9 +171,64 @@
     - remote.living_room
     - sensor.living_room
     
-  Motion:
+  Motion and Occupancy:
     view: no
     entities:
       - binary_sensor.back_porch_motion
       - binary_sensor.front_hallway_motion
       - binary_sensor.kitchen_motion
+      - binary_sensor.living_room_occupancy
+      - binary_sensor.hallway_occupancy
+      - binary_sensor.aidens_room_occupancy
+      - binary_sensor.nolans_room_occupancy
+
+  Bonus Room Lights:
+    name: Lights
+    view: no
+    entities:
+      - light.bonus_room_lamp
+      
+  Smoke Detection:
+    view: no
+    entities:
+      - binary_sensor.home_downstairs_nest_protect_hallway_smoke_detected
+      - binary_sensor.home_upstairs_nest_protect_hallway_smoke_detected
+      
+  CO Detection:
+    view: no
+    entities:
+      - binary_sensor.home_downstairs_nest_protect_hallway_co_detected
+      - binary_sensor.home_upstairs_nest_protect_hallway_co_detected
+      
+  Environment:
+    view: no
+    entities:
+      - group.smoke_detection
+      - group.co_detection
+      
+  Kitchen Sensors:
+    name: Kitchen
+    view: no
+    control: hidden
+    entities:
+      - sensor.kitchen_temperature
+      - binary_sensor.kitchen_to_garage_opened
+      - binary_sensor.kitchen_motion
+      
+  Living Room Sensors:
+    name: Living Room
+    view: no
+    control: hidden
+    entities:
+      - sensor.living_room_temperature_2
+      - binary_sensor.deck_door_opened
+      - binary_sensor.living_room_occupancy
+      
+  Back Porch Sensors:
+    name: Back Porch
+    view: no
+    control: hidden
+    entities:
+      - sensor.back_porch_temperature
+      - binary_sensor.deck_door_opened
+      - binary_sensor.back_porch_motion
