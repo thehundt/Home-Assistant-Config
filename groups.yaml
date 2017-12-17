@@ -165,11 +165,10 @@
     - binary_sensor.garage_back_door_opened
 
   Living Room Media:
-    name: Media Center
     view: no
     entities:
-    - remote.living_room
-    - sensor.living_room
+    - input_select.remote
+    - media_player.living_room
     
   Motion and Occupancy:
     view: no

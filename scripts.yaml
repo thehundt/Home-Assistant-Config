@@ -1,0 +1,32 @@
+#################################################################
+## Scripts
+#################################################################
+
+        ##########################################################
+        ## Harmony Remote
+        ##########################################################
+
+input_select_harmony:
+  alias: "Start Remote activity from input select"
+  sequence:
+      service: remote.turn_on
+      data_template:
+        entity_id: remote.living_room
+        activity: >
+          {% if is_state("input_select.remote", "PowerOff") %}
+              -1
+          {% elif is_state("input_select.remote", "Watch TV") %}
+              28395231
+          {% elif is_state("input_select.remote", "Watch Netflix") %}
+              20694995
+          {% elif is_state("input_select.remote", "Watch Amazon") %}
+              22107067
+          {% elif is_state("input_select.remote", "Watch Disney Junior") %}
+              22142465
+          {% elif is_state("input_select.remote", "Watch DVD") %}
+              20489073
+          {% elif is_state("input_select.remote", "Watch PBS Kids") %}
+              22142435
+          {% elif is_state("input_select.remote", "Watch Nick Junior") %}
+              22142482
+          {% endif %}

@@ -60,24 +60,30 @@ wink:
 
 ecobee:
   api_key: !secret ecobee_api_key
+  hold_temp: true
   
 switch:
   - platform: tplink
-    host: 192.168.1.14
+    host: 192.168.1.114
 
 remote:
   - platform: harmony
     name: Living Room
-    host: 192.168.1.7
+    host: !secret harmony_living_room_ip
     
 media_player:
   - platform: roku
+    host: !secret roku_living_room_ip
+  - platform: sonos
+    hosts: !secret sonos_garage_ip
+  - platform: plex
+    entity_namespace: 'plex'
 
 #################################################################
 ## includes
 #################################################################
 
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation
 #recorder: !include recorder.yaml
 logbook:
 history:
@@ -86,6 +92,6 @@ group: !include groups.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
 #input_boolean: !include input_boolean.yaml
-#input_select: !include input_select.yaml
+input_select: !include input_select.yaml
 script: !include scripts.yaml
 #weblink: !include weblinks.yaml
