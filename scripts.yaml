@@ -20,7 +20,7 @@ input_select_harmony:
           {% elif is_state("input_select.remote", "Watch Netflix") %}
               20694995
           {% elif is_state("input_select.remote", "Watch Amazon") %}
-              22107067
+              30277891
           {% elif is_state("input_select.remote", "Watch Disney Junior") %}
               22142465
           {% elif is_state("input_select.remote", "Watch DVD") %}
@@ -29,4 +29,10 @@ input_select_harmony:
               22142435
           {% elif is_state("input_select.remote", "Watch Nick Junior") %}
               22142482
+          {% elif is_state("input_select.remote", "Watch Roku") %}
+              20489059
+          {% elif is_state("input_select.remote", "Watch AMC") %}
+              30277984
+          {% elif is_state("input_select.remote", "Watch Bravo") %}
+              30277828
           {% endif %}
